@@ -12,10 +12,9 @@ use strict;
 use warnings;
 
 my @dmesg_new = ();
-my $dmesg = "/bin/dmesg";
-my @dmesg_old = `$dmesg`;
+my @dmesg = `/bin/dmesg`;
 my $now = time();
-my $uptime = `cat /proc/uptime | cut -d"." -f1`;
+my $uptime = `cut -d"." -f1 /proc/uptime`;
 my $t_now = $now - $uptime;
 
 sub format_time {
@@ -25,7 +24,7 @@ sub format_time {
  return sprintf '%4i-%02i-%02i %02i:%02i:%02i', @time[reverse 0..5];
 }
 
-foreach my $line ( @dmesg_old )
+foreach my $line ( @dmesg )
 {
  chomp( $line );
  if( $line =~ m/\[\s*(\d+)\.(\d+)\](.*)/i )
