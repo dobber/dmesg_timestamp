@@ -1,0 +1,2 @@
+Add support to read from stream
+Example: cat /var/log/kern.log | ./dmesg.pl
