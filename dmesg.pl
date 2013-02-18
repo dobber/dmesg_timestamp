@@ -56,18 +56,17 @@ sub loop_stream {
 # open file
 sub open_file {
     $filename=$_[0];
+    open (FH,'<',$filename) or die "Error opening $filename:\n$!";
     if ($follow == 1) {
-        open (FH,'<',$filename) or die "Error opening $filename:\n$!";
 	while (42) {
 	    loop_stream();
 	    sleep 1;
-            seek FH, 0, 1;
+	    seek FH, 0, 1;
 	}
     } else {
-        open (FH,$filename) or die "Error opening $filename:\n$!";
 	loop_stream();
-	close(FH);
     }
+    close(FH);
 }
 
 # format time

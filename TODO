@@ -1,2 +1,5 @@
 Add support to read from stream
 Example: cat /var/log/kern.log | ./dmesg.pl
+
+Add support to read multiple files
+Example: dmesg.pl /var/log/srv1.dmesg.log /var/log/srv2.dmesg.log
