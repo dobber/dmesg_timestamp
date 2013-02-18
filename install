@@ -1,0 +1,6 @@
+#!/bin/bash
+
+FILENAME="dmesg.pl"
+if [ -f $FILENAME ] ; then
+    cp -a $FILENAME /usr/local/sbin/
+fi
